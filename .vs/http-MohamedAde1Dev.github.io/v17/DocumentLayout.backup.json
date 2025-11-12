@@ -25,10 +25,6 @@
           "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "script.js",
@@ -36,9 +32,14 @@
               "RelativeDocumentMoniker": "script.js",
               "ToolTip": "C:\\Users\\HP\\Desktop\\http-MohamedAde1Dev.github.io\\script.js",
               "RelativeToolTip": "script.js",
-              "ViewState": "AgIAABEAAAAAAAAAAAAmwCsAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-12T11:56:38.201Z"
+              "WhenOpened": "2025-11-12T11:56:38.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
@@ -48,9 +49,10 @@
               "RelativeDocumentMoniker": "styles.css",
               "ToolTip": "C:\\Users\\HP\\Desktop\\http-MohamedAde1Dev.github.io\\styles.css",
               "RelativeToolTip": "styles.css",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAmwDkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAEoAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-12T11:56:07.526Z"
+              "WhenOpened": "2025-11-12T11:56:07.526Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,7 +62,7 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\HP\\Desktop\\http-MohamedAde1Dev.github.io\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-11-12T10:59:24.383Z",
               "EditorCaption": ""
