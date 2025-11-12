@@ -1,154 +1,110 @@
 ﻿/* الألوان الأساسية:
- * الخلفية: #0a0a0a
+ * الخلفية: #0a0a0a (داكن)
  * اللمسة المضيئة: #00ffff (نيون أزرق) و #ff007f (نيون وردي)
 */
 
 /* --- 1. التنسيق الأساسي والـ Hero --- */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0a0a0a;
-    color: #f0f0f0;
-    overflow-x: hidden;
-    position: relative;
-    direction: ltr; /* التبديل إلى الاتجاه اليسار لليمين */
-    text-align: left;
+    margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0a0a; color: #f0f0f0; overflow-x: hidden;
+    position: relative; direction: ltr; text-align: left;
 }
 
 /* الخلفية الحية */
 #particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
 }
 
 /* الأقسام الرئيسية */
 section {
-    padding: 60px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
+    padding: 60px 5%; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
 }
 
 h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #00ffff;
-    margin-bottom: 40px;
+    text-align: center; font-size: 2.5rem; color: #00ffff; margin-bottom: 40px;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 /* العنوان الرئيسي (Hero Section) */
 .hero-section {
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    min-height: 80vh; display: flex; justify-content: center; align-items: center; text-align: center;
 }
 
 .fahm-name {
-    font-size: 6rem;
-    font-weight: 900;
+    font-size: 6rem; font-weight: 900;
     background: linear-gradient(45deg, #00ffff, #ff007f);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
     text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-    transition: all 0.5s ease-in-out; /* زيادة وقت الانتقال للتأثير */
+    transition: all 0.5s ease-in-out; 
 }
 
-/* تأثير التوهج الجديد عند مرور الماوس */
+/* تأثير التوهج عند مرور الماوس */
 .fahm-name:hover {
     transform: scale(1.05);
-    /* توهج أعمق وأكثر فخامة */
     text-shadow: 0 0 30px #00ffff, 0 0 50px #ff007f; 
 }
 
 .fahm-title {
-    font-size: 2rem;
-    color: #b0b0b0;
-    letter-spacing: 5px;
-    margin-top: 10px;
+    font-size: 2rem; color: #b0b0b0; letter-spacing: 5px; margin-top: 10px;
 }
 
-/* --- 2. قسم الخبرات (Skills Section) --- */
+/* --- 2. قسم الخبرات (Skills Section) - متحرك --- */
+.skills-section {
+    overflow: hidden; 
+}
+
+/* تعريف الحركة الأفقية */
+@keyframes scroll-skills {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
 .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    display: flex; flex-wrap: nowrap; gap: 20px; justify-content: flex-start;
+    margin: 0 auto; width: max-content; padding-bottom: 20px;
+    animation: scroll-skills 30s linear infinite; 
 }
 
 .skill-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    width: 200px;
+    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px;
+    padding: 20px; text-align: center; min-width: 200px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    transform: translateY(-5px); box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
 }
 
 .skill-card i {
-    font-size: 2.5rem;
-    color: #00ffff;
-    margin-bottom: 10px;
+    font-size: 2.5rem; color: #00ffff; margin-bottom: 10px;
 }
 
 .progress-bar {
-    height: 8px;
-    background-color: #333;
-    border-radius: 4px;
-    margin-top: 10px;
-    overflow: hidden;
+    height: 8px; background-color: #333; border-radius: 4px; margin-top: 10px; overflow: hidden;
 }
 
 .progress {
-    height: 100%;
-    background-color: #ff007f;
-    transition: width 1s;
+    height: 100%; background-color: #ff007f; transition: width 1s;
 }
 
 /* --- 3. قسم المشاريع (Projects Section) --- */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
-    padding: 25px;
-    transition: all 0.4s ease;
-    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.08); border-radius: 15px; padding: 25px;
+    transition: all 0.4s ease; border: 1px solid transparent;
 }
 
 .project-card:hover {
-    transform: scale(1.03);
-    border-color: #00ffff;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    transform: scale(1.03); border-color: #00ffff; box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
 }
 
 .project-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: #00ffff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    display: inline-block; margin-top: 15px; color: #00ffff; text-decoration: none;
+    font-weight: bold; transition: color 0.3s;
 }
 
 .project-link:hover {
@@ -157,71 +113,60 @@ h2 {
 
 /* --- 4. تصميم بوت المحادثة (Chat Bot) --- */
 #chat-bot-icon {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #00ffff;
-    color: #0a0a0a;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-    transition: transform 0.3s ease;
-    z-index: 1000;
+    position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px;
+    border-radius: 50%; background-color: #00ffff; color: #0a0a0a; border: none;
+    cursor: pointer; font-size: 24px; box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    transition: transform 0.3s ease; z-index: 1000;
 }
 
 #chat-bot-icon:hover {
     transform: scale(1.1) rotate(5deg);
 }
 
+/* تنسيق رسالة الترحيب عند الـ Hover */
+#chat-welcome-tip {
+    position: absolute; top: -40px; left: 70px; 
+    background-color: #ff007f; color: #0a0a0a; 
+    padding: 5px 10px; border-radius: 8px; white-space: nowrap;
+    opacity: 0; pointer-events: none; 
+    transition: opacity 0.3s, transform 0.3s;
+    font-size: 0.9rem; font-weight: bold; z-index: 1001;
+}
+
+/* ظهور الرسالة عند مرور الماوس على الأيقونة */
+#chat-bot-icon:hover #chat-welcome-tip {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+/* نافذة الشات - مخفية بالـ display: none; */
 #chat-window {
-    position: fixed;
-    bottom: 100px;
-    left: 30px;
-    width: 350px;
-    height: 450px;
-    background: rgba(16, 16, 16, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    z-index: 999;
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
+    position: fixed; bottom: 100px; left: 30px; width: 350px; height: 450px;
+    background: rgba(16, 16, 16, 0.95); backdrop-filter: blur(10px);
+    border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8); overflow: hidden;
+    flex-direction: column; z-index: 999;
+    
+    display: none; /* مخفي تماماً */
+
+    opacity: 0; transform: translateY(20px); pointer-events: none;
     transition: opacity 0.3s, transform 0.3s;
 }
 
 #chat-window.open {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    opacity: 1; transform: translateY(0); pointer-events: auto;
+    display: flex; /* يظهر عند الضغط */
 }
 
 #chat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    background-color: rgba(0, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-    color: #00ffff;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 15px; background-color: rgba(0, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2); color: #00ffff;
 }
 
 #close-chat {
-    background: none;
-    border: none;
-    color: #f0f0f0;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+    background: none; border: none; color: #f0f0f0; font-size: 18px; cursor: pointer;
+    opacity: 0.7; transition: opacity 0.2s;
 }
 
 #close-chat:hover {
@@ -229,77 +174,45 @@ h2 {
 }
 
 #chat-body {
-    flex-grow: 1;
-    padding: 15px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #00ffff #1a1a1a;
+    flex-grow: 1; padding: 15px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #00ffff #1a1a1a;
 }
 
 .message {
-    padding: 10px;
-    margin-bottom: 10px;
-    max-width: 85%;
-    border-radius: 12px;
-    line-height: 1.5;
-    animation: fade-in 0.5s ease;
-    text-align: left; /* تغيير اتجاه النص في الرسائل */
+    padding: 10px; margin-bottom: 10px; max-width: 85%; border-radius: 12px;
+    line-height: 1.5; animation: fade-in 0.5s ease; text-align: left; 
 }
 
 .bot-message {
-    background-color: #333333;
-    color: #f0f0f0;
-    margin-right: auto; /* تغيير مكان الرسالة لليمين في وضع LTR */
-    border-bottom-left-radius: 2px;
+    background-color: #333333; color: #f0f0f0; margin-right: auto; border-bottom-left-radius: 2px;
 }
 
 .user-message {
-    background-color: #00ffff;
-    color: #0a0a0a;
-    margin-left: auto; /* تغيير مكان الرسالة لليسار في وضع LTR */
-    border-bottom-right-radius: 2px;
+    background-color: #00ffff; color: #0a0a0a; margin-left: auto; border-bottom-right-radius: 2px;
 }
 
 .quick-reply-options {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    margin-top: 10px; display: flex; flex-direction: column; gap: 8px;
 }
 
 .quick-reply-btn {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #00ffff;
-    border: 1px solid #00ffff;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    font-size: 14px;
-    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1); color: #00ffff;
+    border: 1px solid #00ffff; padding: 8px 12px; border-radius: 8px;
+    cursor: pointer; transition: background-color 0.2s, box-shadow 0.2s;
+    font-size: 14px; text-align: left;
 }
 
 .quick-reply-btn:hover {
-    background-color: rgba(0, 255, 255, 0.3);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    background-color: rgba(0, 255, 255, 0.3); box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 #chat-input-area {
-    padding: 10px;
-    border-top: 1px solid #333;
-    text-align: center;
+    padding: 10px; border-top: 1px solid #333; text-align: center;
 }
 
 #start-chat-btn {
-    width: 90%;
-    padding: 10px;
-    background: linear-gradient(90deg, #ff007f, #00ffff);
-    color: #0a0a0a;
-    border: none;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: opacity 0.2s;
+    width: 90%; padding: 10px; background: linear-gradient(90deg, #ff007f, #00ffff);
+    color: #0a0a0a; border: none; border-radius: 20px; font-weight: bold;
+    cursor: pointer; transition: opacity 0.2s;
 }
 
 #start-chat-btn:hover {
