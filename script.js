@@ -1,117 +1,128 @@
 ﻿document.addEventListener('DOMContentLoaded', function() {
-    // --- 1. تأثير الإمالة (Tilt Effect) على البطاقة الرئيسية ---
-    const contentBox = document.querySelector('.content');
+    // 1. تأثير الكتابة والمسح (Typing/Deleting Effect)
+    const typingTextElement = document.getElementById('typing-text');
+    const texts = ["System Architect", "Full Stack Developer", "Backend Specialist"];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
-    // تأكد من وجود العنصر قبل إضافة المستمعين
-    if (contentBox) {
-        document.addEventListener('mousemove', (e) => {
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            const mouseX = (e.clientX - centerX) / 50;
-            const mouseY = (e.clientY - centerY) / 50;
+    function typeWriter() {
+        const currentText = texts[textIndex];
+        const display = isDeleting
+            ? currentText.substring(0, charIndex - 1)
+            : currentText.substring(0, charIndex + 1);
 
-            contentBox.style.transform = perspective(1000px) rotateX(${mouseY * -1}deg) rotateY(${mouseX}deg) scale(1.0);
-            contentBox.style.transition = 'none';
-        });
+        typingTextElement.textContent = display;
 
-        document.addEventListener('mouseleave', () => {
-            contentBox.style.transition = 'transform 0.5s ease-out';
-            contentBox.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.0)';
-        });
+        if (!isDeleting && charIndex === currentText.length) {
+            // انتهى من الكتابة، انتظر وابدأ المسح
+            isDeleting = true;
+            setTimeout(typeWriter, 1500); // وقت الانتظار
+        } else if (isDeleting && charIndex === 0) {
+            // انتهى من المسح، انتقل للنص التالي وابدأ الكتابة
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(typeWriter, 500); // وقت التأخير قبل بدء الكتابة
+        } else {
+            // استمر في الكتابة أو المسح
+            const speed = isDeleting ? 70 : 150;
+            charIndex += isDeleting ? -1 : 1;
+            setTimeout(typeWriter, speed);
+        }
     }
-    
-    // --- 2. إعداد الخلفية الحية (Particles.js) ---
+    typeWriter();
+
+    // 2. إعداد الخلفية الحية (Particles.js) - محاكاة الفقاقيع (Bubbles)
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#cccccc" },
+                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00ffff" }, // لون الفقاقيع (نيون أزرق)
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.6, "random": true },
-                "size": { "value": 3, "random": true },
+                "opacity": { "value": 0.3, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } }, // حيوية أكثر
+                "size": { "value": 10, "random": true, "anim": { "enable": false } }, // حجم أكبر للفقاقيع
                 "line_linked": { "enable": false },
-                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+                "move": { "enable": true, "speed": 1.5, "direction": "bottom", "random": true, "straight": false, "out_mode": "out", "bounce": false } // تتحرك للأعلى (مثل الفقاقيع)
             },
             "interactivity": {
                 "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": false }, "resize": true }
+                "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": false }, "resize": true },
+                "modes": { "bubble": { "distance": 200, "size": 15, "duration": 2, "opacity": 0.8 } } // تأثير فقاعة عند التمرير
             },
             "retina_detect": true
         });
     }
 
-    // --- 3. منطق بوت المحادثة (Chat Bot Logic) ---
-
+    // 3. منطق بوت المحادثة (Chat Bot Logic) - تحويل النصوص للإنجليزية
     const chatIcon = document.getElementById('chat-bot-icon');
     const chatWindow = document.getElementById('chat-window');
     const closeChatBtn = document.getElementById('close-chat');
     const chatBody = document.getElementById('chat-body');
     const startChatBtn = document.getElementById('start-chat-btn');
-    // const chatInputArea = document.getElementById('chat-input-area'); // غير مستخدم حالياً
 
     const botFaq = {
         'START': {
-            message: "أهلاً بك مرة أخرى! كيف يمكنني مساعدتك؟",
+            message: "Welcome back! How can I assist you?",
             options: [
-                { text: "طرق التواصل المتاحة", value: 'CONTACT' },
-                { text: "الاستفسار عن مشروع جديد", value: 'NEW_PROJECT' },
-                { text: "أسئلة عامة عن خبراتي", value: 'GENERAL_FAQ' }
+                { text: "Contact Information", value: 'CONTACT' },
+                { text: "Inquire about a New Project", value: 'NEW_PROJECT' },
+                { text: "General Expertise Questions", value: 'GENERAL_FAQ' }
             ]
         },
         'CONTACT': {
-            message: "يسرني التواصل معك. إليك الطرق الأكثر احترافية:",
+            message: "I'd be happy to connect. Here are the professional ways to reach me:",
             response: `
-                <p style="color: #ffcc00; font-weight: bold;">[أفضل طرق التواصل]</p>
+                <p style="color: #ffcc00; font-weight: bold;">[Preferred Contact Methods]</p>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> البريد الإلكتروني (الأفضل للأعمال): <a href="mailto:alsaker804@gmail.com" style="color: #00ffff;">alsaker804@gmail.com</a></li>
-                    <li><i class="fab fa-whatsapp"></i> واتساب (للرد السريع): يتم تزويدك بالرقم بعد الاستفسار الأولي عبر البريد.</li>
-                    <li><i class="fab fa-linkedin"></i> ملف لينكدإن (للخبرات): <a href="#" style="color: #00ffff;">محمد عادل</a> (ضع رابطك هنا)</li>
-                    <li style="color: #b0b0b0; font-size: 0.9em;">(يمكنك إضافة رابط الواتساب والفيسبوك هنا لاحقاً.)</li>
+                    <li><i class="fas fa-envelope"></i> Email (Best for business): <a href="mailto:alsaker804@gmail.com" style="color: #00ffff;">alsaker804@gmail.com</a></li>
+                    <li><i class="fab fa-whatsapp"></i> WhatsApp (Quick reply): The number will be provided after initial email inquiry.</li>
+                    <li><i class="fab fa-linkedin"></i> LinkedIn Profile: <a href="#" style="color: #00ffff;">Mohamed Adel</a> (Link here)</li>
                 </ul>
             `,
             options: [
-                { text: "العودة للقائمة الرئيسية", value: 'START' }
+                { text: "Back to Main Menu", value: 'START' }
             ]
         },
         'NEW_PROJECT': {
-            message: "متحمس للعمل على مشروعك! لبدء الاستفسار:",
+            message: "Excited to work on your project! To start the inquiry:",
             response: `
-                <p>لتحديد احتياجات مشروعك الجديد، يرجى إرسال بريد إلكتروني مفصل إلى <a href="mailto:alsaker804@gmail.com" style="color: #00ffff;">alsaker804@gmail.com</a> يحتوي على:</p>
+                <p>Please send a detailed email to <a href="mailto:alsaker804@gmail.com" style="color: #00ffff;">alsaker804@gmail.com</a> including:</p>
                 <ol>
-                    <li>وصف عام للمشروع.</li>
-                    <li>التقنيات المفضلة (إن وجدت).</li>
-                    <li>الميزانية المتوقعة والجدول الزمني.</li>
+                    <li>Project overview and goals.</li>
+                    <li>Preferred technologies (if any).</li>
+                    <li>Expected budget and timeline.</li>
                 </ol>
-                <p style="color: #ff007f;">سأقوم بالرد خلال 24 ساعة لترتيب مكالمة.</p>
+                <p style="color: #ff007f;">I'll reply within 24 hours to schedule a call.</p>
             `,
             options: [
-                { text: "العودة للقائمة الرئيسية", value: 'START' }
+                { text: "Back to Main Menu", value: 'START' }
             ]
         },
         'GENERAL_FAQ': {
-            message: "ما هي أبرز استفساراتك حول خبراتي؟",
+            message: "What are your top questions about my expertise?",
             options: [
-                { text: "هل تعمل بتقنية .NET؟", value: 'ANS_DOTNET' },
-                { text: "ما هي لغات الواجهات الأمامية (Frontend) التي تجيدها؟", value: 'ANS_FRONTEND' },
-                { text: "العودة للقائمة الرئيسية", value: 'START' }
+                { text: "What Backend technologies do you specialize in?", value: 'ANS_DOTNET' },
+                { text: "What Frontend frameworks do you use?", value: 'ANS_FRONTEND' },
+                { text: "Back to Main Menu", value: 'START' }
             ]
         },
         'ANS_DOTNET': {
-            message: "بالتأكيد! أنا متخصص في تطوير أنظمة الـ Backend باستخدام <span style='color: #00ffff;'>.NET Core و C#</span>، مع خبرة في قواعد بيانات SQL Server و PostgreSQL.",
+            message: "I specialize in developing <span style='color: #00ffff;'>.NET Core and C# Backend systems</span>, with strong experience in SQL Server and PostgreSQL databases.",
             options: [
-                { text: "العودة لأسئلة الخبرات", value: 'GENERAL_FAQ' },
-                { text: "العودة للقائمة الرئيسية", value: 'START' }
+                { text: "Back to FAQ", value: 'GENERAL_FAQ' },
+                { text: "Back to Main Menu", value: 'START' }
             ]
         },
         'ANS_FRONTEND': {
-            message: "أجيد تطوير الواجهات باستخدام <span style='color: #ff007f;'>React JS و Vue.js</span>، إضافة إلى HTML5, CSS3 و JavaScript الحديثة.",
+            message: "I build modern interfaces using <span style='color: #ff007f;'>React JS and Vue.js</span>, alongside expert-level HTML5, CSS3, and modern JavaScript.",
             options: [
-                { text: "العودة لأسئلة الخبرات", value: 'GENERAL_FAQ' },
-                { text: "العودة للقائمة الرئيسية", value: 'START' }
+                { text: "Back to FAQ", value: 'GENERAL_FAQ' },
+                { text: "Back to Main Menu", value: 'START' }
             ]
         }
     };
 
+    // --- (باقي منطق البوت لفتح/غلق النافذة ومعالجة الرسائل - بدون تغيير في المنطق) ---
     // 4. وظائف فتح وإغلاق النافذة
     chatIcon.addEventListener('click', () => {
         chatWindow.classList.toggle('open');
@@ -197,7 +208,7 @@
 
     // 9. معالج زر "ابدأ المحادثة"
     startChatBtn.addEventListener('click', () => {
-        addMessage('Start', 'user');
+        addMessage('Start Chat', 'user');
         
         startChatBtn.style.display = 'none';
         

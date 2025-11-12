@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محفظة محمد عادل الاحترافية</title>
+    <title>Mohamed Adel | Full Stack Developer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,80 +13,82 @@
 
     <header class="hero-section">
         <div class="content">
-            <h1 class="fahm-name">محمد عادل</h1>
-            <p class="fahm-title">مهندس برمجيات | مطور أنظمة ويب متكاملة</p>
-            <div class="scrolling-text">
-                <span class="text-glow">الاحترافية تكمن في الابتكار والعمق التقني.</span>
-            </div>
+            <h1 class="fahm-name">Mohamed Adel</h1>
+            <p class="fahm-title">Full Stack Developer | <span id="typing-text"></span></p>
         </div>
     </header>
 
     <section class="skills-section">
-        <h2>✨ خبراتي التقنية</h2>
+        <h2>Tech Expertise ✨</h2>
         <div class="skills-grid">
             <div class="skill-card" data-skill=".NET/C#">
                 <i class="fas fa-code"></i>
                 <p>.NET Core | C#</p>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-card" data-skill="React">
+                <i class="fab fa-react"></i>
+                <p>React JS / Next.js</p>
                 <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
             </div>
             <div class="skill-card" data-skill="JavaScript">
                 <i class="fab fa-js"></i>
-                <p>JavaScript/Node.js</p>
+                <p>Node.js | Express</p>
                 <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
-            </div>
-            <div class="skill-card" data-skill="React">
-                <i class="fab fa-react"></i>
-                <p>React JS / Frontend</p>
-                <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
             </div>
             <div class="skill-card" data-skill="SQL">
                 <i class="fas fa-database"></i>
-                <p>SQL Server / Postgre</p>
+                <p>SQL Server | PostgreSQL</p>
                 <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-card" data-skill="Cloud">
+                <i class="fas fa-cloud"></i>
+                <p>AWS / Docker</p>
+                <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
             </div>
         </div>
     </section>
 
     <section class="projects-section">
-        <h2>🚀 مشاريعي المنجزة</h2>
+        <h2>Recent Projects 🚀</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>نظام إدارة متكامل (ERP)</h3>
-                <p>بناء نظام ERP متكامل باستخدام .NET Core و React.</p>
-                <a href="#" class="project-link">شاهد المشروع</a>
+                <h3>ERP System Development</h3>
+                <p>Full-stack ERP solution built with .NET Core and React.</p>
+                <a href="#" class="project-link">View Project</a>
             </div>
             <div class="project-card">
-                <h3>تطبيق موبايل (Flutter)</h3>
-                <p>تطبيق إدارة مهام متعدد المنصات بخلفية Node.js.</p>
-                <a href="#" class="project-link">شاهد المشروع</a>
+                <h3>Cross-Platform Mobile App</h3>
+                <p>Task management mobile app using Flutter with a Node.js backend.</p>
+                <a href="#" class="project-link">View Project</a>
             </div>
             <div class="project-card">
-                <h3>منصة تجارة إلكترونية</h3>
-                <p>تطوير منصة متكاملة بميزات أمنية عالية.</p>
-                <a href="#" class="project-link">شاهد المشروع</a>
+                <h3>E-Commerce Platform</h3>
+                <p>High-security e-commerce platform with microservices architecture.</p>
+                <a href="#" class="project-link">View Project</a>
             </div>
         </div>
     </section>
 
-    <button id="chat-bot-icon" aria-label="مراسلة البوت">
+    <button id="chat-bot-icon" aria-label="Chat Bot">
         <i class="fas fa-robot"></i>
     </button>
 
     <div id="chat-window">
         <div id="chat-header">
-            <h4>🤖 بوت محمد عادل الذكي</h4>
+            <h4>🤖 Mohamed Adel Bot</h4>
             <button id="close-chat"><i class="fas fa-times"></i></button>
         </div>
         <div id="chat-body">
             <div class="message bot-message">
-                <p>أهلاً بك أستاذ محمد. أنا البوت الذكي، يمكنني مساعدتك في استفساراتك.</p>
+                <p>Welcome! I'm Mohamed Adel's Smart Bot.</p>
             </div>
             <div class="message bot-message">
-                <p>للبدء، اضغط على زر "ابدأ المحادثة"!</p>
+                <p>Press "Start" to see the available options.</p>
             </div>
         </div>
         <div id="chat-input-area">
-            <button id="start-chat-btn">ابدأ المحادثة</button>
+            <button id="start-chat-btn">Start Chat</button>
         </div>
     </div>
 
