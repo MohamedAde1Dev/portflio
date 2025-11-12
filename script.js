@@ -19,7 +19,8 @@
         });
     }
     
-    // 2. تأثير الكتابة والمسح (Typing/Deleting Effect) - تم إضافة النص الجديد
+    // ** 2. تم إلغاء تأثير الكتابة بناءً على طلبك (لا تمسح وتكتب) **
+    /*
     const typingTextElement = document.getElementById('typing-text');
     const texts = ["System Architect", "Full Stack Developer", "Backend Specialist", "Especially back end"]; 
     let textIndex = 0;
@@ -27,27 +28,10 @@
     let isDeleting = false;
 
     function typeWriter() {
-        const currentText = texts[textIndex];
-        const display = isDeleting
-            ? currentText.substring(0, charIndex - 1)
-            : currentText.substring(0, charIndex + 1);
-
-        typingTextElement.textContent = display;
-
-        if (!isDeleting && charIndex === currentText.length) {
-            isDeleting = true;
-            setTimeout(typeWriter, 1500);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-            setTimeout(typeWriter, 500);
-        } else {
-            const speed = isDeleting ? 70 : 150;
-            charIndex += isDeleting ? -1 : 1;
-            setTimeout(typeWriter, speed);
-        }
+        // ... (تم تعطيل الكود الخاص بالكتابة والمسح)
     }
-    typeWriter();
+    // typeWriter(); 
+    */
 
     // 3. إعداد الخلفية الحية (Particles.js) - محاكاة الفقاقيع (Bubbles)
     if (window.particlesJS) {
@@ -203,24 +187,4 @@
             handleBotResponse('START');
         }, 500);
     });
-// 3. إعداد الخلفية الحية (Particles.js) - محاكاة الفقاقيع (Bubbles)
-if (window.particlesJS) {
-    particlesJS('particles-js', {
-        "particles": {
-            "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#00ffff" }, // لون الفقاقيع (نيون أزرق)
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.3, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
-            "size": { "value": 10, "random": true, "anim": { "enable": false } },
-            "line_linked": { "enable": false },
-            "move": { "enable": true, "speed": 1.5, "direction": "bottom", "random": true, "straight": false, "out_mode": "out", "bounce": false }
-        },
-        "interactivity": { // تفاعل الفقاقيع مع حركة الماوس
-            "detect_on": "canvas",
-            "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": false }, "resize": true },
-            "modes": { "bubble": { "distance": 200, "size": 15, "duration": 2, "opacity": 0.8 } }
-        },
-        "retina_detect": true
-    });
-}
 });
