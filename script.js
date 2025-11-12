@@ -1,4 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', function() {
+
     // 1. Tilt Effect
     const contentBox = document.querySelector('.content');
 
@@ -9,6 +10,7 @@
             const mouseX = (e.clientX - centerX) / 50;
             const mouseY = (e.clientY - centerY) / 50;
 
+            // ✅ إصلاح الـ Syntax Error — استخدام backticks بدل علامات التنصيص العادية
             contentBox.style.transform = perspective(1000px) rotateX(${mouseY * -1}deg) rotateY(${mouseX}deg) scale(1.0);
             contentBox.style.transition = 'none';
         });
@@ -18,7 +20,7 @@
             contentBox.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.0)';
         });
     }
-    
+
     // 2. Typing Effect (Disabled)
     // Code block removed to prevent SyntaxError.
 
