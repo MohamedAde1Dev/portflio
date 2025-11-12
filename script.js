@@ -203,4 +203,24 @@
             handleBotResponse('START');
         }, 500);
     });
+// 3. إعداد الخلفية الحية (Particles.js) - محاكاة الفقاقيع (Bubbles)
+if (window.particlesJS) {
+    particlesJS('particles-js', {
+        "particles": {
+            "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#00ffff" }, // لون الفقاقيع (نيون أزرق)
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.3, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+            "size": { "value": 10, "random": true, "anim": { "enable": false } },
+            "line_linked": { "enable": false },
+            "move": { "enable": true, "speed": 1.5, "direction": "bottom", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": { // تفاعل الفقاقيع مع حركة الماوس
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": false }, "resize": true },
+            "modes": { "bubble": { "distance": 200, "size": 15, "duration": 2, "opacity": 0.8 } }
+        },
+        "retina_detect": true
+    });
+}
 });
