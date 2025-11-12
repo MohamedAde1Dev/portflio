@@ -1,58 +1,82 @@
-﻿/* ... (كود CSS السابق) ... */
+﻿/* 1. إعدادات الجسم والخلفية الداكنة */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    /* خلفية داكنة جداً مع تدرج خفيف */
+    background: linear-gradient(135deg, #0a0a0a 0%, #1e1e1e 100%);
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
 
-/* 3. حاوية المحتوى لتكون فوق الخلفية - تعديل لجعلها بطاقة فخمة شفافة */
+/* 2. عنصر الخلفية الحية Particles */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* 3. حاوية المحتوى لتكون فوق الخلفية - تأثير الزجاج الشفاف Glassmorphism */
 .content {
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 50px 80px; /* زيادة التبطين */
-    border-radius: 20px; /* زوايا مستديرة */
-    backdrop-filter: blur(10px); /* تأثير الزجاج الشفاف (Glassmorphism) */
-    background-color: rgba(255, 255, 255, 0.05); /* خلفية شبه شفافة جداً */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* إطار خفيف */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), /* ظل سفلي لزيادة العمق */
-                0 0 50px rgba(255, 0, 127, 0.2); /* توهج خفيف من لون التدرج */
+    padding: 50px 80px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px); /* تأثير الزجاج الشفاف */
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5),
+                0 0 50px rgba(255, 0, 127, 0.2);
     transform: perspective(1000px); /* إعداد للمنظور ثلاثي الأبعاد */
 }
 
-/* 4. النص الفخم (H1) - تعديل لإضافة عمق 3D */
+/* 4. النص الفخم (H1) - تأثير التدرج والـ 3D */
 .fahm-text {
-    font-size: 5.5rem; /* زيادة الحجم */
+    font-size: 5.5rem;
     font-weight: 900;
     margin: 0;
     line-height: 1.2;
-    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* حركة أكثر سلاسة وفخامة */
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-    /* التأثير الأهم: التدرج اللوني الفني والعميق */
+    /* التدرج اللوني */
     background: linear-gradient(45deg, #ff007f, #00ffff, #ffcc00);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 
-    /* الظل العميق الآن سيعطي إحساس الـ 3D */
+    /* الظل العميق وإحساس الـ 3D */
     text-shadow:
-        1px 1px 0px #0d0d0d, /* طبقة ظل خفيفة */
-        2px 2px 0px #1a1a1a, /* طبقة ظل متوسطة */
-        4px 4px 10px rgba(0, 0, 0, 0.8), /* ظل أسود قوي لزيادة العمق */
-        0 0 20px rgba(255, 150, 200, 0.4); /* توهج خفيف حول الحروف */
+        1px 1px 0px #0d0d0d,
+        2px 2px 0px #1a1a1a,
+        4px 4px 10px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 150, 200, 0.4);
 }
 
-/* 5. حركة وتأثير إضافي عند التمرير (Hover) - إضافة حركة 3D */
+/* 5. حركة وتأثير إضافي عند التمرير (Hover) */
 .fahm-text:hover {
-    letter-spacing: 12px; /* زيادة التباعد */
-    transform: scale(1.05) translateZ(50px); /* تكبير + إبراز للأمام في 3D */
+    letter-spacing: 12px;
+    transform: scale(1.05) translateZ(50px);
     text-shadow:
-        0 0 30px rgba(255, 255, 255, 0.9), /* توهج أبيض قوي جداً */
-        0 0 60px rgba(0, 255, 255, 0.7); /* توهج أزرق نيون */
-    filter: brightness(1.2); /* زيادة الإضاءة */
+        0 0 30px rgba(255, 255, 255, 0.9),
+        0 0 60px rgba(0, 255, 255, 0.7);
+    filter: brightness(1.2);
 }
 
-/* 6. النص الفرعي (P) - تعديل */
+/* 6. النص الفرعي (P) */
 .sub-text {
     font-size: 1.6rem;
-    color: #c0c0c0; /* لون فضي أنقى */
+    color: #c0c0c0;
     margin-top: 25px;
     letter-spacing: 7px;
     text-transform: uppercase;
-    font-style: italic; /* إمالة خفيفة للفخامة */
+    font-style: italic;
 }
