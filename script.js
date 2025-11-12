@@ -70,14 +70,14 @@
         });
     }
 
-    // 4. منطق بوت المحادثة (Chat Bot Logic)
+    // 4. منطق بوت المحادثة (Chat Bot Logic) - تحديث منطق الردود
     const chatIcon = document.getElementById('chat-bot-icon');
     const chatWindow = document.getElementById('chat-window');
     const closeChatBtn = document.getElementById('close-chat');
     const chatBody = document.getElementById('chat-body');
     const startChatBtn = document.getElementById('start-chat-btn');
 
-    // قاموس الأسئلة والأجوبة
+    // تحديث قاموس الأسئلة والأجوبة
     const botFaq = {
         'START': {
             message: "Hello! How can I help you?",
@@ -110,19 +110,19 @@
         }
     };
 
-    // 5. وظائف فتح وإغلاق النافذة (تم التعديل ليتناسب مع الـ Click)
+    // 5. وظائف فتح وإغلاق النافذة (بدون تغيير)
     chatIcon.addEventListener('click', () => {
-        chatWindow.classList.add('open'); // إضافة كلاس open لإظهار النافذة
-        chatIcon.style.display = 'none'; // إخفاء الأيقونة عند فتح النافذة
+        chatWindow.classList.toggle('open');
+        chatIcon.style.display = 'none';
         chatBody.scrollTop = chatBody.scrollHeight;
     });
 
     closeChatBtn.addEventListener('click', () => {
-        chatWindow.classList.remove('open'); // إزالة كلاس open لإخفاء النافذة
-        chatIcon.style.display = 'block'; // إظهار الأيقونة عند إغلاق النافذة
+        chatWindow.classList.remove('open');
+        chatIcon.style.display = 'block';
     });
 
-    // 6. وظيفة إضافة رسالة جديدة
+    // 6. وظيفة إضافة رسالة جديدة (بدون تغيير)
     function addMessage(text, sender, isHtml = false) {
         const msgDiv = document.createElement('div');
         msgDiv.classList.add('message');
@@ -140,7 +140,7 @@
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // 7. وظيفة عرض الخيارات التفاعلية
+    // 7. وظيفة عرض الخيارات التفاعلية (بدون تغيير)
     function displayOptions(options) {
         const optionsDiv = document.createElement('div');
         optionsDiv.classList.add('quick-reply-options');
@@ -161,7 +161,7 @@
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // 8. معالج النقر على خيارات المستخدم
+    // 8. معالج النقر على خيارات المستخدم (بدون تغيير)
     function handleUserSelection(event) {
         const selectedValue = event.target.dataset.value;
         const selectedText = event.target.textContent;
@@ -178,7 +178,7 @@
         }, 500);
     }
 
-    // 9. وظيفة الرد على خيار المستخدم
+    // 9. وظيفة الرد على خيار المستخدم (بدون تغيير)
     function handleBotResponse(key) {
         const responseData = botFaq[key];
 
@@ -193,7 +193,7 @@
         }
     }
 
-    // 10. معالج زر "ابدأ المحادثة"
+    // 10. معالج زر "ابدأ المحادثة" (بدون تغيير)
     startChatBtn.addEventListener('click', () => {
         addMessage('Start Chat', 'user');
         
