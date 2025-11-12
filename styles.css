@@ -1,0 +1,12 @@
+﻿/* 12. تعويض الهامش العلوي للأقسام بسبب الـ Navbar الثابت */
+.section {
+    padding-top: 100px; /* زيادة مساحة التعبئة العلوية */
+    margin-top: -50px; /* لرفع القسم قليلاً لتعويض الارتفاع */
+}
+
+/* تعديل حجم الخط للـ Navbar ليتناسب مع الانتقال السلس */
+.nav-links a:hover {
+    color: #00bcd4; 
+    border-bottom: 2px solid #00bcd4; 
+    padding-bottom: 3px;
+}
