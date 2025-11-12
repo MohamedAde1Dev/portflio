@@ -1,5 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', function() {
-    // 1. تأثير الإمالة (Tilt Effect) على البطاقة الرئيسية
+    // 1. Tilt Effect
     const contentBox = document.querySelector('.content');
 
     if (contentBox) {
@@ -19,21 +19,10 @@
         });
     }
     
-    // ** 2. تم إلغاء تأثير الكتابة بناءً على طلبك (لا تمسح وتكتب) **
-    /*
-    const typingTextElement = document.getElementById('typing-text');
-    const texts = ["System Architect", "Full Stack Developer", "Backend Specialist", "Especially back end"]; 
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    // 2. Typing Effect (Disabled)
+    // Code block removed to prevent SyntaxError.
 
-    function typeWriter() {
-        // ... (تم تعطيل الكود الخاص بالكتابة والمسح)
-    }
-    // typeWriter(); 
-    */
-
-    // 3. إعداد الخلفية الحية (Particles.js) - محاكاة الفقاقيع (Bubbles)
+    // 3. Particles.js Setup (Bubbles)
     if (window.particlesJS) {
         particlesJS('particles-js', {
             "particles": {
@@ -54,14 +43,13 @@
         });
     }
 
-    // 4. منطق بوت المحادثة (Chat Bot Logic)
+    // 4. Chat Bot Logic
     const chatIcon = document.getElementById('chat-bot-icon');
     const chatWindow = document.getElementById('chat-window');
     const closeChatBtn = document.getElementById('close-chat');
     const chatBody = document.getElementById('chat-body');
     const startChatBtn = document.getElementById('start-chat-btn');
 
-    // قاموس الأسئلة والأجوبة
     const botFaq = {
         'START': {
             message: "Hello! How can I help you?",
@@ -94,7 +82,6 @@
         }
     };
 
-    // 5. وظائف فتح وإغلاق النافذة (تنفيذ منطق Hover/Click)
     chatIcon.addEventListener('click', () => {
         chatWindow.classList.add('open'); 
         chatIcon.style.display = 'none'; 
@@ -106,7 +93,6 @@
         chatIcon.style.display = 'block'; 
     });
 
-    // 6. وظيفة إضافة رسالة جديدة
     function addMessage(text, sender, isHtml = false) {
         const msgDiv = document.createElement('div');
         msgDiv.classList.add('message');
@@ -124,7 +110,6 @@
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // 7. وظيفة عرض الخيارات التفاعلية
     function displayOptions(options) {
         const optionsDiv = document.createElement('div');
         optionsDiv.classList.add('quick-reply-options');
@@ -145,7 +130,6 @@
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // 8. معالج النقر على خيارات المستخدم
     function handleUserSelection(event) {
         const selectedValue = event.target.dataset.value;
         const selectedText = event.target.textContent;
@@ -162,7 +146,6 @@
         }, 500);
     }
 
-    // 9. وظيفة الرد على خيار المستخدم
     function handleBotResponse(key) {
         const responseData = botFaq[key];
 
@@ -177,7 +160,6 @@
         }
     }
 
-    // 10. معالج زر "ابدأ المحادثة"
     startChatBtn.addEventListener('click', () => {
         addMessage('Start Chat', 'user');
         
