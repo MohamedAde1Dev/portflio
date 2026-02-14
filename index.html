@@ -3,69 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Adel | Full Stack Developer</title>
-    <base href="/http-MohamedAde1Dev.github.io/">
-    <link rel="stylesheet" href="./styles.css?v=1.2">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Mohamed Adel | Full Stack .NET Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
-    <div id="particles-js"></div>
-
-    <header class="hero-section">
-        <div class="content">
-            <h1 class="fahm-name">Mohamed Adel</h1>
-            <p class="fahm-title">Full Stack Developer | Especially Back-end</p>
+    <nav>
+        <div class="container">
+            <div class="logo">M.<span>Adel</span></div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" class="nav-item" onclick="showPage('about')">About</a></li>
+                <li><a href="#" class="nav-item" onclick="showPage('experience')">Experience</a></li>
+                <li><a href="#" class="nav-item" onclick="showPage('skills')">Skills</a></li>
+                <li><a href="#" class="nav-item" onclick="showPage('projects')">Projects</a></li>
+                <li><a href="#" class="nav-item" onclick="showPage('testimonials')">Testimonials</a></li>
+                <li><a href="#" class="nav-item" onclick="showPage('contact')">Contact</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <section class="skills-section">
-        <h2>Tech Expertise ✨</h2>
+    <section id="home" class="page active hero">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="profile-img-container">
+                <img src="WhatsApp Image 2025-12-17 at 8.57.37 PM.jpeg" alt="Mohamed Adel" class="profile-img">
+            </div>
+            <h1>I'm <span>Mohamed Adel</span></h1>
+            <p>Full Stack .NET Developer | Freelance Expert</p>
+            <div class="cta-group">
+                <a href="#" class="btn" onclick="showPage('projects')">View My Work</a>
+                <a href="Mohamed_Adel_Full_Stack_DotNet_Developer_CV_Clean_Icons.pdf" class="btn btn-outline" target="_blank">
+                    <i class="fas fa-download"></i> My Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content" data-aos="fade-right">
+            <p>
+                I am a Full Stack Developer dedicated to transforming complex logic into seamless digital experiences. With a year of professional focus, I bridge the gap between business needs and high-quality code.
+                "I help businesses turn complex data workflows into intuitive web solutions through scalable <b>.NET</b> architecture, focusing on security, performance, and long-term maintainability."
+                Leveraging <b>C#</b>, <b>ASP.NET Core</b>, and <b>SQL Server</b>, I have deployed 3 full-cycle projects and improved database efficiency by <b>25%</b>. I am analytical, detail-oriented, and committed to writing clean, future-proof code. <b>[I believe great software is built on precision—and a lot of coffee!]</b> Ready to bring your next big idea to life? Let’s connect and build something exceptional!
+            </p>
+        </div>
+    </section>
+
+    <section id="skills" class="page container">
+        <h2 class="section-title">Technical Expertise</h2>
         <div class="skills-grid">
-            <div class="skill-card" data-skill=".NET/C#"><i class="fas fa-code"></i><p>.NET Core | C#</p><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
-            <div class="skill-card" data-skill="React"><i class="fab fa-react"></i><p>React JS / Next.js</p><div class="progress-bar"><div class="progress" style="width: 90%;"></div></div></div>
-            <div class="skill-card" data-skill="JavaScript"><i class="fab fa-js"></i><p>Node.js | Express</p><div class="progress-bar"><div class="progress" style="width: 85%;"></div></div></div>
-            <div class="skill-card" data-skill="SQL"><i class="fas fa-database"></i><p>SQL Server | PostgreSQL</p><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
-            <div class="skill-card" data-skill="Cloud"><i class="fas fa-cloud"></i><p>AWS / Docker</p><div class="progress-bar"><div class="progress" style="width: 75%;"></div></div></div>
-            
-            <div class="skill-card" data-skill=".NET/C#"><i class="fas fa-code"></i><p>.NET Core | C#</p><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
-            <div class="skill-card" data-skill="React"><i class="fab fa-react"></i><p>React JS / Next.js</p><div class="progress-bar"><div class="progress" style="width: 90%;"></div></div></div>
-            <div class="skill-card" data-skill="JavaScript"><i class="fab fa-js"></i><p>Node.js | Express</p><div class="progress-bar"><div class="progress" style="width: 85%;"></div></div></div>
-            <div class="skill-card" data-skill="SQL"><i class="fas fa-database"></i><p>SQL Server | PostgreSQL</p><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
-            <div class="skill-card" data-skill="Cloud"><i class="fas fa-cloud"></i><p>AWS / Docker</p><div class="progress-bar"><div class="progress" style="width: 75%;"></div></div></div>
+            <div class="skill-card" data-aos="zoom-in"><i class="fab fa-microsoft"></i> <h4>ASP.NET Core</h4></div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-database"></i> <h4>EF Core</h4></div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-react"></i> <h4>React.js</h4></div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="300"><i class="fab fa-js"></i> <h4>Modern JS</h4></div>
         </div>
     </section>
 
-    <section class="projects-section">
-        <h2>Recent Projects 🚀</h2>
+    <section id="projects" class="page container">
+        <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
-            <div class="project-card"><h3>ERP System Development</h3><p>Full-stack ERP solution built with .NET Core and React.</p><a href="#" class="project-link">View Project</a></div>
-            <div class="project-card"><h3>Cross-Platform Mobile App</h3><p>Task management mobile app using Flutter with a Node.js backend.</p><a href="#" class="project-link">View Project</a></div>
-            <div class="project-card"><h3>E-Commerce Platform</h3><p>High-security e-commerce platform with microservices architecture.</p><a href="#" class="project-link">View Project</a></div>
+            <div class="project-card" data-aos="flip-left">
+                <img src="WhatsApp Image 2026-02-13 at 10.52.10 AM.jpeg" alt="HR System" class="project-img">
+                <div class="project-info">
+                    <h3>HR Management System</h3>
+                    <p>Comprehensive HR dashboard built with .NET Web API and React.</p>
+                    <p>
+                        A full-featured HR Management System designed to streamline employee lifecycle operations and improve organizational efficiency. The system provides a centralized platform to manage employee records, attendance, roles, and internal processes with a secure and user-friendly interface.
+                        I developed the application using ASP.NET Core and C# for the backend, implementing RESTful APIs and robust business logic, while the frontend was built with React to deliver a responsive and intuitive user experience.
+                        Key features include employee profile management, role-based access control, attendance tracking, and real-time data handling. The project focuses on clean architecture, scalability, and performance optimization to ensure reliability in real-world scenarios.
+                    </p>
+                    <div class="tags"><span>.NET Core</span><span>React</span></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <button id="chat-bot-icon" aria-label="Chat Bot">
-        <i class="fas fa-robot"></i>
-        <span id="chat-welcome-tip">Welcome! Click to chat.</span>
-    </button>
-
-    <div id="chat-window">
-        <div id="chat-header">
-            <h4>🤖 Mohamed Adel Bot</h4>
-            <button id="close-chat"><i class="fas fa-times"></i></button>
+    <section id="contact" class="page container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-box" data-aos="zoom-out">
+            <p>Let's collaborate on your next big project!</p>
+            <div class="contact-links">
+                <a href="https://wa.me/201069289511" class="btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.linkedin.com/in/mohameed-adel-b842752b2" class="btn linkedin" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
         </div>
-        <div id="chat-body">
-            <div class="message bot-message"><p>Welcome! I'm Mohamed Adel's Smart Bot.</p></div>
-            <div class="message bot-message"><p>Press "Start Chat" to see the available options.</p></div>
-        </div>
-        <div id="chat-input-area">
-            <button id="start-chat-btn">Start Chat</button>
-        </div>
-    </div>
+    </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="./script.js?v=1.2"></script>
+    <section id="experience" class="page container">
+        <h2 class="section-title">Education & Experience</h2>
 
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-left">
+                <h3>Work Experience</h3>
+                <div class="exp-box">
+                    <h4>Freelance Full Stack Developer</h4>
+                    <p>2024 - Present</p>
+                    <p>Developing custom web solutions using .NET Core and React for various clients.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right">
+                <h3>Education</h3>
+                <div class="exp-box">
+                    <h4>Computer Science</h4>
+                    <p> Mansoura University | Faculty of Science Bachelor of Computer Science (B.Sc.) | [2024 – 2028] * Focused on core Computer Science principles, Data Structures, and Algorithms.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <h3>Achievements</h3>
+                <ul>
+                    <li>
+                        Digital Egypt Pioneers Initiative (DEPI) Scholar 🎓
+                        Caption: Selected by the Ministry of Communications and Information Technology (MCIT) for this intensive scholarship. This recognition reflects my commitment to mastering the latest Full Stack .NET technologies and delivering industry-standard software solutions.
+                    </li>
+                    <li>Developed a full-scale HR system from scratch.</li>
+                    <li>Completed advanced .NET & EF Core certification.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="page container">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonials-grid">
+            <div class="testi-card" data-aos="flip-up">
+                <p>"Mohamed is a highly skilled developer, his work on our HR system was exceptional."</p>
+                <h5>- Full Stack Developer: Islam Helmy</h5>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
