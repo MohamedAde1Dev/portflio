@@ -185,6 +185,13 @@ nav {
     object-fit: cover;
 }
 
+/* لما الشاشة تكبر (لاب توب مثلاً أكتر من 768px) */
+@media (min-width: 768px) {
+    .project-img img {
+        height: 300px; /* بنكبر الطول شوية عشان يناسب الشاشة الكبيرة */
+    }
+}
+
 .project-info {
     padding: 20px;
 }
