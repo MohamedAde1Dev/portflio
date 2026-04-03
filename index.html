@@ -10,10 +10,17 @@
 </head>
 <body>
 
+    
+
     <nav>
-        <div class="container">
+        <div class="container nav-container">
             <div class="logo">M.<span>Adel</span></div>
-            <ul class="nav-links">
+
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#" class="nav-item" onclick="showPage('home')">Home</a></li>
                 <li><a href="#" class="nav-item" onclick="showPage('about')">About</a></li>
                 <li><a href="#" class="nav-item" onclick="showPage('experience')">Experience</a></li>
@@ -85,7 +92,6 @@
             <div class="skill-card" data-aos="zoom-in" data-aos-delay="800">
                 <i class="fab fa-js"></i> <h4>JavaScript</h4>
             </div>
-        </div>
         </div>
     </section>
 
